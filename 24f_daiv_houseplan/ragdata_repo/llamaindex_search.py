@@ -1,6 +1,5 @@
 import pandas as pd
 from llama_index.core import Document, VectorStoreIndex
-from llama_index.vector_stores.pinecone import PineconeVectorStore
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import VectorStoreIndex
 

@@ -157,7 +157,7 @@ crawl_data = pd.DataFrame(crawl_metadata)
 combined_data = pd.concat([api_data, crawl_data], ignore_index=True)
 
 # CSV 저장
-output_path = os.path.join(current_dir, "combined_data.csv")
+output_path = os.path.join(current_dir, "data/combined_data.csv")
 combined_data.to_csv(output_path, index=False, encoding="utf-8-sig")
 
 print(f"Combined data saved to {output_path}")
