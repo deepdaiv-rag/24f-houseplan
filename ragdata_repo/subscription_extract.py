@@ -1,14 +1,25 @@
-import os
 import pdfplumber
 import pandas as pd
 import re
+import os
 
 # 현재 작업 디렉토리 확인
-current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+current_dir = os.getcwd()
 
 # 상대 경로 설정
-api_data_path = os.path.join(current_dir, "data/api_data")
-crawl_data_path = os.path.join(current_dir, "data/crawl_data")
+api_data_path = os.path.join(current_dir, "data", "api_data")
+crawl_data_path = os.path.join(current_dir, "data", "crawl_data")
+
+# 경로 확인
+print("API Data Path:", api_data_path)
+print("Crawl Data Path:", crawl_data_path)
+
+# 디렉토리 존재 여부 확인
+if not os.path.exists(api_data_path):
+    raise FileNotFoundError(f"API 데이터 경로가 존재하지 않습니다: {api_data_path}")
+
+if not os.path.exists(crawl_data_path):
+    raise FileNotFoundError(f"Crawl 데이터 경로가 존재하지 않습니다: {crawl_data_path}")
 
 
 # PDF 파일 읽기 함수

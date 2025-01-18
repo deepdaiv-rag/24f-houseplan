@@ -72,11 +72,23 @@ user_prompt: str
 """
 
 
+import os
+
 def financial_product_parser(user_input: dict):
-    current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
-    data_save_path = os.path.join(current_dir, "data/financial_data.csv")
+    # 현재 작업 디렉토리 확인
+    current_dir = os.getcwd()
+
+    # 상대 경로 설정
+    data_save_path = os.path.join(current_dir, "data", "financial_data.csv")
+
+    # 경로 존재 여부 확인
+    if not os.path.exists(data_save_path):
+        raise FileNotFoundError(f"지정된 파일 경로가 존재하지 않습니다: {data_save_path}")
+
+    # 데이터 처리 호출
     result = main(data_save_path, user_input)
     return result
+
 
 
 if __name__ == "__main__":

@@ -659,20 +659,30 @@ def get_policy_recommendations(policy_data, user_age, user_region, current_date_
 
 
 def policy_parser(user_input: dict):
-    with open(
-        "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan/data/filtered_policies.json",
-        "r",
-        encoding="utf-8",
-    ) as f:
+    # 현재 디렉토리 가져오기
+    current_dir = os.getcwd()
+    print("Current Directory:", current_dir)
+
+    # JSON 파일 경로 구성
+    json_file_path = os.path.join(current_dir, "data", "filtered_policies.json")
+
+    # JSON 파일 읽기
+    with open(json_file_path, "r", encoding="utf-8") as f:
         json_data = f.read()
+    
+    # JSON 데이터 로드
     data = json.loads(json_data)
+
+    # 정책 추천 함수 호출
     recommendations = get_policy_recommendations(
         data,
         user_input["user_age"],
         user_input["user_region"],
         user_input["current_date"],
     )
+
     return recommendations
+
 
 
 if __name__ == "__main__":

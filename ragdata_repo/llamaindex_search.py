@@ -3,10 +3,21 @@ from llama_index.core import Document, VectorStoreIndex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import VectorStoreIndex
 
-# CSV 파일 로드
-csv_file_path = (
-    "/Users/hyottz/Desktop/24f-houseplan/daiv_houseplan/policy_saving_sentences.csv"
-)
+import os
+import pandas as pd
+
+# 현재 디렉토리 가져오기
+current_dir = os.getcwd()
+print("Current Directory:", current_dir)
+
+# 파일 경로 구성
+csv_file_path = os.path.join(current_dir, "data", "policy_saving_sentences.csv")
+
+# 파일 경로 확인
+if not os.path.exists(csv_file_path):
+    raise FileNotFoundError(f"파일을 찾을 수 없습니다: {csv_file_path}")
+
+# 데이터 읽기
 df = pd.read_csv(csv_file_path)
 
 # Document 객체 생성
