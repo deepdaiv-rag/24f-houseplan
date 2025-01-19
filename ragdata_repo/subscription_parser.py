@@ -52,7 +52,8 @@ user_input: dict
 
 
 def subscription_parser(user_input: dict):
-    current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+    #current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     metadata_save_path = os.path.join(current_dir, "data/combined_data.csv")
     result = main(metadata_save_path, user_input)
     result_json = result.to_json(orient="records", force_ascii=False)

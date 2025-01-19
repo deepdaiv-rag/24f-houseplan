@@ -73,7 +73,8 @@ user_prompt: str
 
 
 def financial_product_parser(user_input: dict):
-    current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+    #current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     data_save_path = os.path.join(current_dir, "data/financial_data.csv")
     result = main(data_save_path, user_input)
     return result

@@ -4,7 +4,8 @@ import pandas as pd
 import re
 
 # 현재 작업 디렉토리 확인
-current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+# current_dir = "/Users/hyottz/Desktop/24f-houseplan/24f_daiv_houseplan"
+current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 상대 경로 설정
 api_data_path = os.path.join(current_dir, "data/api_data")

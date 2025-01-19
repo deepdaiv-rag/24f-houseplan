@@ -2,11 +2,16 @@ import pandas as pd
 from llama_index.core import Document, VectorStoreIndex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import VectorStoreIndex
+import os
 
 # CSV 파일 로드
-csv_file_path = (
-    "/Users/hyottz/Desktop/24f-houseplan/daiv_houseplan/policy_saving_sentences.csv"
-)
+# csv_file_path = (
+    
+#     "/Users/hyottz/Desktop/24f-houseplan/daiv_houseplan/policy_saving_sentences.csv"
+# )
+
+current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+csv_file_path = os.path.join(current_dir, "data/policy_saving_sentences.csv")
 df = pd.read_csv(csv_file_path)
 
 # Document 객체 생성
